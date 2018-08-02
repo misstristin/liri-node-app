@@ -43,24 +43,14 @@ if (input == 'movie-this'){
 }
 
 if (input == 'spotify-this'){
-    
+
     spotify.search({ type: 'track', limit: 1, offset: 0, query: inputTwo }, function(err, body) {
         if (err) {
           return console.log('Error occurred: ' + err);
         }
-    //   console.log(JSON.stringify(body,null,2));
       console.log("Artist name(s): " + body.tracks.items[0].album.artists[0].name);
-      console.log("Song title: " + body.tracks.items[0].album.artists[0].name);  
-      console.log("Preview link: " + body.tracks.items[0].album.artists[0].name);  
-      console.log("From album titled: " + body.tracks.items[0].album.artists[0].name);    
+      console.log("Song name: " + body.tracks.items[0].name);  
+      console.log("Preview link: " + body.tracks.items[0].album.artists[0].external_urls.spotify);  
+      console.log("From album titled: " + body.tracks.items[0].album.name);    
     });
-
 }  
-
-// * Artist(s)
-     
-//      * The song's name
-     
-//      * A preview link of the song from Spotify
-     
-//      * The album that the song is from
