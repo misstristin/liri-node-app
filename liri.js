@@ -19,12 +19,7 @@ if (input == undefined){
 };
 
 if (input == 'movie-this'){
-
-    if (inputTwo = undefined){
-        inputTwo = 'mr nobody';
-        console.log(inputTwo);
-    }
-    
+  
     inputTwo.slice(' ');
     inputTwo.join('+');
 
