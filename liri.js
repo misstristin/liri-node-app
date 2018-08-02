@@ -19,7 +19,13 @@ if (input == undefined){
 };
 
 if (input == 'movie-this'){
-  
+
+    // Tried something along these lines; broke my whole code
+
+    // if (inputTwo == undefined){
+    //     inputTwo = 'mr nobody'
+    // }
+
     inputTwo.slice(' ');
     inputTwo.join('+');
 
@@ -39,6 +45,12 @@ if (input == 'movie-this'){
 
 if (input == 'spotify-this-song'){
 
+    // Tried something along these lines; broke my whole code
+
+    // if (inputTwo == undefined){
+    //     inputTwo = 'the sign'
+    // }
+
     spotify.search({ type: 'track', limit: 1, offset: 0, query: inputTwo }, function(err, body) {
         if (err) {
           return console.log('Error occurred: ' + err);
@@ -56,7 +68,7 @@ if (input == 'do-what-it-says'){
           return console.log(error);
         }
       var random = data.split(',');
-    //   console.log(random);
+
       spotify.search({ type: 'track', limit: 1, offset: 0, query: random[1] }, function(err, body) {
         if (err) {
           return console.log('Error occurred: ' + err);
