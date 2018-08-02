@@ -22,6 +22,7 @@ if (input == 'movie-this'){
 
     if (inputTwo = undefined){
         inputTwo = 'mr nobody';
+        console.log(inputTwo);
     }
     
     inputTwo.slice(' ');
@@ -39,20 +40,20 @@ if (input == 'movie-this'){
             console.log("Major actors include: " + JSON.parse(body).Actors + ".");
     }
 });
+}
 
 if (input == 'spotify-this'){
 
-    spotify.search({ type: 'track', query: inputTwo }, function(err, data) {
+    if (inputTwo = undefined){
+        inputTwo = 'the sign';
+        console.log(inputTwo);
+    }
+
+    spotify.search({ type: 'track', query: inputTwo }, function(err, response) {
         if (err) {
           return console.log('Error occurred: ' + err);
         }
-      console.log(data); 
-    });
-}
-    
-
-
-
-}else if (input == 'do-what-it-says'){
-    console.log('random stuff here');
-};
+       
+      console.log(JSON.stringify(response,null,2)); 
+      });
+    }
