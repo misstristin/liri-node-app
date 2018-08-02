@@ -18,6 +18,17 @@ if (input == undefined){
     console.log("For a random action, run command 'do-what-it-says'"); 
 };
 
+// tried everything, have no idea why I can't get this to work via twitter api documentation
+
+if (input == 'my-tweets'){
+    var params = {screen_name: 'misstristin', count: 20};
+    client.get('statuses/user_timeline', params, function(error, tweets, response) {
+    if (!error) {
+      console.log(tweets);
+  } 
+});
+}; 
+
 if (input == 'movie-this'){
 
     // Tried something along these lines; broke my whole code
@@ -82,6 +93,4 @@ if (input == 'do-what-it-says'){
 
 }  
 
-if (input == 'my-tweets'){
-
-}  
+ 
