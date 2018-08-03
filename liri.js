@@ -25,17 +25,19 @@ if (input == 'my-tweets'){
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
     if (!error) {
       console.log(tweets);
-  } 
+  } else {
+    console.log(error)
+  }
 });
-}; 
+}
 
 if (input == 'movie-this'){
 
     // Tried something along these lines; broke my whole code
 
-    // if (inputTwo == undefined){
-    //     inputTwo = 'mr nobody'
-    // }
+    if (inputTwo == undefined){
+        inputTwo = 'mr nobody';
+    }
 
     inputTwo.slice(' ');
     inputTwo.join('+');
