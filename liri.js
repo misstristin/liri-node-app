@@ -9,7 +9,7 @@ var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
 
 var input = process.argv[2];
-var inputTwo = process.argv.slice(3);
+var inputTwo = process.argv.slice(3).join('+');
 
 if (input == undefined){
     console.log("For music details, run command 'spotify-this-song <songname>'");
@@ -18,7 +18,6 @@ if (input == undefined){
     console.log("For a random action, run command 'do-what-it-says'"); 
 };
 
-// tried everything, have no idea why I can't get this to work via twitter api documentation
 
 if (input == 'my-tweets'){
     var params = {screen_name: 'misstristin', count: 20};
@@ -33,14 +32,9 @@ if (input == 'my-tweets'){
 
 if (input == 'movie-this'){
 
-    // Tried something along these lines; broke my whole code
-
-    if (inputTwo == undefined){
+    if (inputTwo == ''){
         inputTwo = 'mr nobody';
     }
-
-    inputTwo.slice(' ');
-    inputTwo.join('+');
 
     request("http://www.omdbapi.com/?t=" + inputTwo + "&y=&plot=short&apikey=trilogy", function(error, response, body) {
 
@@ -58,11 +52,9 @@ if (input == 'movie-this'){
 
 if (input == 'spotify-this-song'){
 
-    // Tried something along these lines; broke my whole code
-
-    // if (inputTwo == undefined){
-    //     inputTwo = 'the sign'
-    // }
+    if (inputTwo == ''){
+        inputTwo = 'the+sign+ace+of+base';
+    }
 
     spotify.search({ type: 'track', limit: 1, offset: 0, query: inputTwo }, function(err, body) {
         if (err) {
